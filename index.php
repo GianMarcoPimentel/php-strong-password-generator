@@ -56,12 +56,14 @@
     <title>PHP-Strong-Password-Generator</title>
      <!-- bootstrap -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <!-- link css -->
+     <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body dark-bg-theme>
     <div class="container py-4 text-center  ">
 
-        <h1>PHP-Strong-Password-Generator</h1>
+        <h1 class="my-color">PHP-Strong-Password-Generator</h1>
 
     </div>
     <!-- 
@@ -73,8 +75,8 @@
     -->
     <div class="container text-center ">
 
-        <form action="index.php" method="get" class="d-flex gap-3">
-            <label for="lunghezza_password">Lunghezza password:</label>
+        <form action="index.php" method="get" class="d-flex gap-3 align-items-center justify-content-center ">
+            <label class="text-primary" for="lunghezza_password">Lunghezza password:</label>
             <input 
             type="number" 
             id="lunghezza_password" 
@@ -84,12 +86,12 @@
             value="8"
             >
             <br>
-            <label for="caratteri">Caratteri da utilizzare :</label>
+            <label class="text-warning" for="caratteri">Caratteri da utilizzare :</label>
             <input type="text" id="caratteri" name="caratteri" >
             <br>
-            <label for="ripetizione">Ripetizione caratteri :</label>
+            <label class="text-danger" for="ripetizione">Ripetizione caratteri :</label>
             <input type="checkbox" id="ripetizione" name="ripetizione" checked>
-            <input type="submit" value="Genera">
+            <input class="text-light bg-success p-3 border-0 rounded-5" type="submit" value="Genera">
         </form>
         
     </div>
