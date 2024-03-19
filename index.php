@@ -58,8 +58,8 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
-<body>
-    <div class="container py-4">
+<body dark-bg-theme>
+    <div class="container py-4 text-center  ">
 
         <h1>PHP-Strong-Password-Generator</h1>
 
@@ -71,7 +71,7 @@
             (composta da lettere maiuscole, lettere minuscole, numeri e simboli) da restituire all’utente.
             Scriviamo tutto (logica e layout) in un unico file index.php
     -->
-    <div class="container">
+    <div class="container text-center ">
 
         <form action="index.php" method="get">
             <label for="lunghezza_password">Lunghezza password:</label>
@@ -97,9 +97,13 @@
             $lunghezza_password = (int) $_GET["lunghezza_password"];
             $password = createPassword($lunghezza_password);
 
-            echo "<p>La password creata è: <br>
-            <h1> $password >/h1> 
-            </p>";
+            //Memorizzo password nella sessione
+            session_start();
+            $_SESSION['password'] = $password;
+
+            // reindirizzo alla pagina redirect.php
+            header('Location: redirect.php');
+            
         }
 
     ?>
