@@ -32,7 +32,7 @@
   -->
  <?php
         // Funzione per creare una password
-        function createPassword($lunghezza_password) {
+       /*  function createPassword($lunghezza_password) {
             // dichiaro la variabile caratteri da utilizzare per la mia password
             $caratteri = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
             // dichiaro la mia variabile password inizialmente vuota
@@ -44,8 +44,9 @@
             return " $password" ;
             //var_dump("$password");
         }
-
-
+ */
+        // Includo il file funciotns.php tramite include
+        include "functions.php";
     ?>
 <!DOCTYPE html>
 <html lang="it">
