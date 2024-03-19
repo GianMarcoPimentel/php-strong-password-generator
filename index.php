@@ -27,6 +27,26 @@
 
  -->
 
+ <!-- 
+    Dichiaro la funzione prima di iniziare la mia pagina
+  -->
+ <?php
+        // Funzione per creare una password
+        function createPassword($lunghezza_password) {
+            // dichiaro la variabile caratteri da utilizzare per la mia password
+            $caratteri = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
+            // dichiaro la mia variabile password inizialmente vuota
+            $password = "";
+            // inizializzo un ciclo for per comporre la mia password
+            for ($i = 0; $i < $lunghezza_password; $i ++ ) {
+                $password .= $caratteri[mt_rand(0, strlen($caratteri) -1)];
+            }             
+            return " $password" ;
+            //var_dump("$password");
+        }
+
+
+    ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -52,12 +72,36 @@
     -->
     <div class="container">
 
-        <form action="index.php">
-            <label for="lunghezza">Lunghezza password:</label>
-            <input type="number" id="lunghezza" name="lunghezza" min="8" max="32" value="16">
+        <form action="index.php" method="get">
+            <label for="lunghezza_password">Lunghezza password:</label>
+            <input 
+            type="number" 
+            id="lunghezza_password" 
+            name="lunghezza_password" 
+            min="8"
+            max="20"
+            value="8"
+            >
             <input type="submit" value="Genera">
         </form>
         
     </div>
+<div class="container">
+
+    <?php
+        // Andrò a richiamare la mia funzione createPassword() all'interno del ciclo if
+
+        // genero la password
+        if(isset($_GET["lunghezza_password"])) {
+            $lunghezza_password = (int) $_GET["lunghezza_password"];
+            $password = createPassword($lunghezza_password);
+
+            echo "<p>La password creata è: <br>
+            <h1> $password >/h1> 
+            </p>";
+        }
+
+    ?>
+</div>
 </body>
 </html>
