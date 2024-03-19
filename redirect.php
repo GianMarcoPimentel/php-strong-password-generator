@@ -15,7 +15,7 @@
             session_start();
             $password = $_SESSION["password"];
             echo $password;
-    ?>
+        ?>
 
         </strong>
 </body>

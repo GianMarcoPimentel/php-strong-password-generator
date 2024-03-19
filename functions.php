@@ -1,16 +1,21 @@
 <?php
         // Funzione per creare una password
-        function createPassword($lunghezza_password) {
-            // dichiaro la variabile caratteri da utilizzare per la mia password
-            $caratteri = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
-            // dichiaro la mia variabile password inizialmente vuota
-            $password = "";
-            // inizializzo un ciclo for per comporre la mia password
-            for ($i = 0; $i < $lunghezza_password; $i ++ ) {
-                $password .= $caratteri[mt_rand(0, strlen($caratteri) -1)];
-            }             
-            return " $password" ;
-            //var_dump("$password");
+        function createPassword($lunghezza_password, $caratteri, $ripetizione)  {
+            $password = " ";
+            // str_split() converte la stringa in un array
+            $restricted = str_split($caratteri);
+
+            if(!$ripetizione) {
+                // se ripetizione è falso la funzione elimina i duplicati
+                $restricted = array_unique($restricted);
+            }
+
+            for($i = 0; $i < $lunghezza_password; $i++) {
+                // creo la password
+                $password .= $restricted[mt_rand(0, count($restricted) -1)];
+
+            }
+            return $password;
         }
 
 

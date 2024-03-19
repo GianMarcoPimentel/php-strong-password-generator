@@ -73,7 +73,7 @@
     -->
     <div class="container text-center ">
 
-        <form action="index.php" method="get">
+        <form action="index.php" method="get" class="d-flex gap-3">
             <label for="lunghezza_password">Lunghezza password:</label>
             <input 
             type="number" 
@@ -83,6 +83,12 @@
             max="20"
             value="8"
             >
+            <br>
+            <label for="caratteri">Caratteri da utilizzare :</label>
+            <input type="text" id="caratteri" name="caratteri" >
+            <br>
+            <label for="ripetizione">Ripetizione caratteri :</label>
+            <input type="checkbox" id="ripetizione" name="ripetizione" checked>
             <input type="submit" value="Genera">
         </form>
         
@@ -95,7 +101,11 @@
         // genero la password
         if(isset($_GET["lunghezza_password"])) {
             $lunghezza_password = (int) $_GET["lunghezza_password"];
-            $password = createPassword($lunghezza_password);
+            // variabile $ caratteri
+            $caratteri = $_GET["caratteri"];
+            // variabile $ ripetizione
+            $ripetizione = isset($_GET['ripetizione']) ? true : false;
+            $password = createPassword($lunghezza_password, $caratteri, $ripetizione);
 
             //Memorizzo password nella sessione
             session_start();
@@ -103,7 +113,7 @@
 
             // reindirizzo alla pagina redirect.php
             header('Location: redirect.php');
-            
+            exit;
         }
 
     ?>
