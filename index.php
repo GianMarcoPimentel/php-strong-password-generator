@@ -38,6 +38,26 @@
 
 </head>
 <body>
- 
+    <div class="container py-4">
+
+        <h1>PHP-Strong-Password-Generator</h1>
+
+    </div>
+    <!-- 
+         Milestone 1
+            Creare un form che invii in GET la lunghezza della password. 
+            Una nostra funzione utilizzerà questo dato per generare una password casuale
+            (composta da lettere maiuscole, lettere minuscole, numeri e simboli) da restituire all’utente.
+            Scriviamo tutto (logica e layout) in un unico file index.php
+    -->
+    <div class="container">
+
+        <form action="index.php">
+            <label for="lunghezza">Lunghezza password:</label>
+            <input type="number" id="lunghezza" name="lunghezza" min="8" max="32" value="16">
+            <input type="submit" value="Genera">
+        </form>
+        
+    </div>
 </body>
 </html>
